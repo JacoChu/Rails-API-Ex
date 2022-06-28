@@ -4,7 +4,8 @@ class Reservation < ApplicationRecord
   before_validation :generate_booking_code, :on => :create
 
   belongs_to :train
-
+  belongs_to :user
+  
   def generate_booking_code
     self.booking_code = SecureRandom.uuid
   end
